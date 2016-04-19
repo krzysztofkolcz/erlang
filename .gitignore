@@ -1,0 +1,12 @@
+**/db2.*
+**/target
+*.swp
+*/util.log
+*/util.properties
+*/util.script
+chapter03/*
+tmp002
+obiado/.idea/
+obiado/obiado.iml
+
+**/*.beam
