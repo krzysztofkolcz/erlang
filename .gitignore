@@ -10,3 +10,4 @@ obiado/.idea/
 obiado/obiado.iml
 
 **/*.beam
+**/*.dump

@@ -17,14 +17,14 @@ loop(S = #state{server=Server, to_go=[T|Next]}) ->
     end.
 
 
-start(EventName, Delay) ->
-  spawn(?MODULE, init, [self(), EventName, Delay]).
+start(EventName,DateTime ) ->
+  spawn(?MODULE, init, [self(), EventName, DateTime ]).
  
-start_link(EventName, Delay) ->
-  spawn_link(?MODULE, init, [self(), EventName, Delay]).
+start_link(EventName, DateTime ) ->
+  spawn_link(?MODULE, init, [self(), EventName, DateTime ]).
  
 %%% Event's innards
-init(Server, EventName, Delay) ->
+init(Server, EventName, DateTime) ->
   loop(#state{server=Server, name=EventName, to_go=time_to_go(DateTime)}).
 
 
