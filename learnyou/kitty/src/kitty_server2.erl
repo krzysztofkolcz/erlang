@@ -24,20 +24,23 @@ close_shop(Pid) ->
 %%% Server functions
 init([]) -> []. %% no treatment of info here!
 
-handle_cast({return,Cat},State) ->
+handle_cast({return,Cat},Cats) ->
     [Cat|Cats].
 
-handle_call({{order, Name, Color, Description},{Pid,Ref},Cats}) ->
+%% From = {Pid,Ref}
+handle_call({order, Name, Color, Description},From,Cats) ->
     if Cats =:= [] ->
-          my_server:reply({Pid, Ref}, make_cat(Name, Color, Description)), 
+          my_server:reply(From, make_cat(Name, Color, Description)), 
           Cats; 
        Cats =/= [] -> % got to empty the stock
-          my_server:reply({Pid, Ref}, hd(Cats)), 
+          my_server:reply(From, hd(Cats)), 
           tl(Cats)
     end;
 
-handle_call({{terminate},{Pid,Ref},Cats}) ->
-    my_server:reply({Pid, Ref}, ok), 
+
+%% From = {Pid,Ref}
+handle_call({terminate},From,Cats) ->
+    my_server:reply(From, ok), 
     terminate(Cats).
 
 %%% Private functions
