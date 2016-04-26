@@ -38,7 +38,8 @@ valid_regex(Re) ->
 
 
 handle_info({start, Dir}, State, Data) ->
-    gen_fsm:send_event(self(), erlcount_lib:find_erl(Dir)),
+    gen_fsm:send_event(self(), 
+                       erlcount_lib:find_erl(Dir)),
     {next_state, State, Data}.
 
 

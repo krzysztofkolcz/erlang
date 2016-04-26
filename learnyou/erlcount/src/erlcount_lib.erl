@@ -1,5 +1,11 @@
 -module(erlcount_lib).
--export([find_erl/1]).
+-export([find_erl/1,
+          dequeue_and_run/1,
+          handle_directory/2,
+          enqueue_many/3,
+          handle_regular_file/2,
+          regex_count/2,
+        ]).
 -include_lib("kernel/include/file.hrl").
  
 
