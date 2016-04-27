@@ -46,14 +46,19 @@ Request, From, and State.
 ### desc:
 Wywoływana po przekroczeniu TimeOut - init
 
-# gen_fsm return values:
-## init:
+# gen_fsm 
+## init return values:
 {ok, StateName, Data}
 {ok, StateName, Data, Timeout}
 {ok, StateName, Data, hibernate}
 {stop, Reason} 
 
-## state:
+
+## state/2 (async):
+
+## state/3 (sync):
+
+## state/3 return values:
 {reply, Reply, NextStateName, NewStateData}
 {reply, Reply, NextStateName, NewStateData, Timeout}
 {reply, Reply, NextStateName, NewStateData, hibernate}
@@ -64,6 +69,19 @@ Wywoływana po przekroczeniu TimeOut - init
 
 {stop, Reason, Reply, NewStateData}
 {stop, Reason, NewStateData}
+
+## send_event/2 - wysyłanie asynchronicznych eventów
+
+## send_sync_event/2-3 - wysyłanie synchronicznych eventów
+
+## send_all_state_event/2 
+
+## sync_send_all_state_event/2-3
+
+## handle_event/3
+handle async events (no mather state we are in)
+## handle_sync_event/4
+handle sync events (no mather state we are in)
 
 # Supervisors
 ## start_link
@@ -87,4 +105,30 @@ np.:
 
 
 
+## Odpalenie erlcount + ppool
+cd erlangtut/learnyou
+cd ppool-1.0
+erl -make
 
+cd ../erlcount-1.0
+erl -make
+
+cd ..
+erl -env ERL_LIBS "."
+
+erl> application:load(ppool).
+erl> application:start(ppool), application:start(erlcount).
+
+
+
+
+## rebar3
+
+
+## rabbit
+### rabbitmqadmin
+sudo ln -s /usr/lib/rabbitmq/bin/rabbitmq-plugins /usr/local/bin/rabbitmq-plugins
+http://localhost:15672/cli/ - save rabbitmqadmin; make executable; mv to /usr/local/bin
+
+/etc/rabbitmq/rabbitmq.config 
+/etc/rabbitmq/enabled_plugins
