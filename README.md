@@ -47,6 +47,7 @@ Request, From, and State.
 Wywoływana po przekroczeniu TimeOut - init
 
 # gen_fsm 
+http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 ## init return values:
 {ok, StateName, Data}
 {ok, StateName, Data, Timeout}
