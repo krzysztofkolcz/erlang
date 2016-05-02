@@ -2,6 +2,8 @@
 -behaviour(gen_fsm).
 -export(start_link/1, start/1, init/1, sit/3, stay/3).
 
+%% gen_fsm callbacks
+-export([init/1, handle_event/3, handle_sync_event/4, handle_info/3, terminate/3, code_change/4]).
 -record(state, {name="",state}).
 
 start(Name) ->
@@ -22,16 +24,17 @@ init(Name) ->
     {ok, sit, #state{name=Name}}. 
 
 %% Send user a notice. 
-notice(#state{name=N,state=S}) ->
-    io:format("~s~s: ~n", [N|S]).
+notice(#state{name=N}, Str, Args) ->
+    io:format("~s: "++Str++"~n", [N|Args]),
+    notice(S,"",[]).
 
 sit(sit,S=#state{}) ->
-    {next_state, sit, S#state{state="sit"}};
-    notice(S).
+    {next_state, sit, S#state{state="sit"}},
+    notice(S,"",[]).
 
 sit(stay,S=#state{}) ->
-    {next_state, stay, S#state{state="stay"}};
-    notice(S).
+    {next_state, stay, S#state{state="stay"}},
+    notice(S,"",[]).
 
 stay(stay,S=#state{}) ->
     {next_state, stay, S#state{state="stay"}};
@@ -46,6 +49,6 @@ code_change(_OldVsn, StateName, Data, _Extra) ->
  
 %% Transaction completed.
 terminate(normal, ready, S=#state{}) ->
-    notice(S, "FSM leaving.", []);
+    notice(S);
     terminate(_Reason, _StateName, _StateData) ->
     ok.
