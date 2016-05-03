@@ -4,6 +4,72 @@
 3. Na zadlnej maszynie: erl -sname ping (tworzy noda ping)
 4. W uruchomionej konsolce noad odpala tut17:start_ping(pong@parowy). 
 
+
+# 
+erl -make
+erl -pa <directory> 
+looking for modules in directory
+
+# spawn:
+## spawn/1
+spawn(function_name).
+zwraca Pid procesu
+
+1> F = fun() -> 2 + 2 end.
+2> spawn(F).
+
+4> G = fun(X) -> timer:sleep(10), io:format("~p~n", [X]) end.
+5> [spawn(fun() -> G(X) end) || X <- lists:seq(1,10)].
+
+### funkcja w module
+spawn(fun linkmon:myproc/0).
+
+## spawn/3
+spawn(module_name, function_name, function_params).
+
+# link
+Link - jeżeli linkowany proces zginie, zginie również proces linkujący.
+When that relationship is set up and one of the processes dies from an unexpected throw, error or exit, the other linked process also dies.
+
+## spawn_link
+aby nie czekać na link 
+
+# process_flag
+process_flag(trap_exit, true)
+System processes are basically normal processes, except they can convert exit signals to regular messages. 
+Czyli zmienia sygnał wyjścia w msg:
+1> process_flag(trap_exit, true).
+true
+2> spawn_link(fun() -> linkmon:chain(3) end).
+<0.49.0>
+3> receive X -> X end.
+{'EXIT',<0.49.0>,"chain dies here"}
+
+# monitors
+Inaczej niż link, jeżeli monitorowany proces zginie, proces monitorujący otrzyma wiadomość
+erlang:monitor/2
+pierwszy parametr to atmo process
+1> erlang:monitor(process, spawn(fun() -> timer:sleep(500) end)).
+#Ref<0.0.0.77>
+2> flush().
+Shell got {'DOWN',#Ref<0.0.0.77>,process,<0.63.0>,normal}
+ok
+
+Every time a process you monitor goes down, you will receive such a message. The message is {'DOWN', MonitorReference, process, Pid, Reason}.
+
+## spawn_monitor/1-3
+spawn a process while monitoring it
+
+# register
+
+Pid = spawn_link(?MODULE, critic, []),
+register(critic, Pid),
+...
+
+critic ! {self(), {Band, Album}},
+Pid = whereis(critic),
+...
+
 # gen_server:
 ## start_link/3-4 parametry wywołania
 gen_server:start_link(?MODULE, [], []).
