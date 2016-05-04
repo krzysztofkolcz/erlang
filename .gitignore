@@ -11,3 +11,5 @@ obiado/obiado.iml
 
 **/*.beam
 **/*.dump
+
+rabbit-1.0/include/*

@@ -190,12 +190,59 @@ erl> application:start(ppool), application:start(erlcount).
 
 
 ## rebar3
+rebar3 new app <app-name>
 
 
 ## rabbit
+echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+sudo apt-get update
+
+lub
+
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
+
+sudo apt-get install rabbitmq-server
+
 ### rabbitmqadmin
 sudo ln -s /usr/lib/rabbitmq/bin/rabbitmq-plugins /usr/local/bin/rabbitmq-plugins
-http://localhost:15672/cli/ - save rabbitmqadmin; make executable; mv to /usr/local/bin
+sudo ln -s /usr/lib/rabbitmq/bin/rabbitmq-env /usr/local/bin/rabbitmq-env
+rabbitmq-plugins enable rabbitmq_management
+
+http://localhost:15672/cli/ - save rabbitmqadmin; 
+rename to rabbitmqadmin (if rabbitmqadmin.txt)
+make executable; 
+mv to /usr/local/bin
+
+http://localhost:15672/
+user:guest
+pass:guest
 
 /etc/rabbitmq/rabbitmq.config 
 /etc/rabbitmq/enabled_plugins
+
+# erlang & rabbit
+https://www.rabbitmq.com/erlang-client-user-guide.html --chyba stare 
+https://cartesianfaith.com/2011/01/24/rabbitmq-client-examples-using-rebar/ --chyba stare 
+https://github.com/careo/rabbitmq-erlang-client-examples -- chyba stare
+
+https://github.com/rabbitmq/rabbitmq-tutorials/tree/master/erlang - wersja sprzed 5 lat
+https://www.rabbitmq.com/erlang-client-user-guide.html - wersja sprzed 5 lat
+ERL_LIBS=include erlc -o ebin send.erl - za stare
+ERL_LIBS=include erlc -o ebin recv.erl - za stare
+
+https://github.com/jbrisbin/amqp_client - rebar friendly version of rabbit
+
+http://dorkydevops.blogspot.com/2014/06/erlang-rabbitmq-amqp-rebar-example.html
+https://www.rabbitmq.com/erlang-client-user-guide.html
+https://howistart.org/posts/erlang/1 :
+rebar3 compile
+erl -env ERL_LIBS _build/default/lib/ -eval 'application:ensure_all_started(rabbit_app)' 
+erl> rabbit_app:test().
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+[{<<"amqp_client">>,
+  {git,"git://github.com/jbrisbin/amqp_client.git",
+       {ref,"a6d63fe202e4974e315f3e186d020fc7a780826b"}},
+  0},
+ {<<"rabbit_common">>,
+  {git,"git://github.com/jbrisbin/rabbit_common.git",
+       {ref,"48519ade63410f836a6d08c0a29b4c94f3c8102a"}},
+  0}].
