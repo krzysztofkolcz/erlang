@@ -233,15 +233,27 @@ ERL_LIBS=include erlc -o ebin recv.erl - za stare
 
 https://github.com/jbrisbin/amqp_client - rebar friendly version of rabbit
 
-http://dorkydevops.blogspot.com/2014/06/erlang-rabbitmq-amqp-rebar-example.html
-https://www.rabbitmq.com/erlang-client-user-guide.html
-https://howistart.org/posts/erlang/1 :
+
+== rabbit ==
+katalog:
+/erlang/rabbit
+
 rebar3 compile
 erl -env ERL_LIBS _build/default/lib/ -eval 'application:ensure_all_started(rabbit_app)' 
 erl> rabbit_app:test().
 
+Korzystałem z poniższych linków:
+http://dorkydevops.blogspot.com/2014/06/erlang-rabbitmq-amqp-rebar-example.html - uruchomienie poniższego linka za pomocą rebara, z dependencies?
+https://www.rabbitmq.com/erlang-client-user-guide.html
+https://howistart.org/posts/erlang/1  - rebar3 Homer Simpson asm - stąd wziąłem start aplikacji i kompilacje:
 
 
+
+Wyjaśniony protokół amqp, queues, channels i exchanges:
+http://www.rabbitmq.com/tutorials/amqp-concepts.html 
+
+Tutorial erlanga:
+https://www.rabbitmq.com/erlang-client-user-guide.html
 
 
 

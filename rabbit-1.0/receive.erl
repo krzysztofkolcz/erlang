@@ -1,4 +1,3 @@
-
 #!/usr/bin/env escript
 %%! -pz ./amqp_client ./rabbit_common ./amqp_client/ebin ./rabbit_common/ebin
 

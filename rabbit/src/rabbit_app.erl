@@ -26,44 +26,42 @@
 %% %%====================================================================
 
 -module(rabbit_app).
+-include("../amqp_client/include/amqp_client.hrl").
+-compile([export_all]).
 
-      -include("../amqp_client/include/amqp_client.hrl").
+test() ->
+    %% Start a network connection
+    {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
+    %% Open a channel on the connection
+    {ok, Channel} = amqp_connection:open_channel(Connection),
 
-      -compile([export_all]).
+    %% Declare a queue - random name
+    %% #'queue.declare_ok'{queue = Q} = amqp_channel:call(Channel, #'queue.declare'{}),
 
-      test() ->
-          %% Start a network connection
-          {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
-          %% Open a channel on the connection
-          {ok, Channel} = amqp_connection:open_channel(Connection),
+    Q = <<"my_queue">>,
+    Declare = #'queue.declare'{queue = Q},
+    #'queue.declare_ok'{} = amqp_channel:call(Channel, Declare),
 
-          %% Declare a queue - random name
-          %% #'queue.declare_ok'{queue = Q} = amqp_channel:call(Channel, #'queue.declare'{}),
+    %% Publish a message
+    Payload = <<"foobar">>,
+    Publish = #'basic.publish'{exchange = <<>>, routing_key = Q},
+    amqp_channel:cast(Channel, Publish, #amqp_msg{payload = Payload}),
 
-          Q = <<"my_queue">>,
-          Declare = #'queue.declare'{queue = Q},
-          #'queue.declare_ok'{} = amqp_channel:call(Channel, Declare),
+    %% Get the message back from the queue
+    Get = #'basic.get'{queue = Q},
+    {#'basic.get_ok'{delivery_tag = Tag}, Content}
+         = amqp_channel:call(Channel, Get),
 
-          %% Publish a message
-          Payload = <<"foobar">>,
-          Publish = #'basic.publish'{exchange = <<>>, routing_key = Q},
-          amqp_channel:cast(Channel, Publish, #amqp_msg{payload = Payload}),
+    %% Do something with the message payload
+    %% (some work here)
+    io:format("~p",[Content]),
 
-          %% Get the message back from the queue
-          Get = #'basic.get'{queue = Q},
-          {#'basic.get_ok'{delivery_tag = Tag}, Content}
-               = amqp_channel:call(Channel, Get),
+    %% Ack the message
+    amqp_channel:cast(Channel, #'basic.ack'{delivery_tag = Tag}),
 
-          %% Do something with the message payload
-          %% (some work here)
-          io:format("~p",[Content]),
+    %% Close the channel
+    amqp_channel:close(Channel),
+    %% Close the connection
+    amqp_connection:close(Connection),
 
-          %% Ack the message
-          amqp_channel:cast(Channel, #'basic.ack'{delivery_tag = Tag}),
-
-          %% Close the channel
-          amqp_channel:close(Channel),
-          %% Close the connection
-          amqp_connection:close(Connection),
-
-          ok.
+    ok.
