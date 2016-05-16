@@ -1,0 +1,222 @@
+POWERHOSTING-DEV+SELENIUM-USER@POWER.COM.PL
+overquota
+10:17:45,559  INFO HeeSubscriptionManager:50 - Setting clusterStatusPropagated to: true
+10:17:45,580  INFO AmqpInboundChannelAdapter:97 - started heeMgmtIncomingChannelAdapter
+10:17:45,620  INFO TicketResumer:44 - Resuming saved tickets
+10:17:47,116  INFO HeeProxyImpl:142 - Sending message: {"method":"hosting.configure_quota","domain":"ticket","arguments":{"total-mail_quota":"100000000B","mysql_target_host":"server0","system_account_quota":"100000000B","target_host":"server0","total-mysql_quota":"100000000B","mail_target_host":"server0","hosting":"tgef_overquota"},"type":"request"}
+10:17:47,217  INFO HeeProxyImpl:145 - Saved ticket with db id 27700
+10:17:47,364  WARN HEEProxyActivatorImpl:181 - Message with correlationId 27700 has wrong domain (TICKET) or type (REQUEST)
+10:17:47,387  INFO HostingConfigureQuotaAction:75 - [HostingConfigureQuotaAction.HandleTicketACK] ticket ACK: hosting.configure_quota
+10:17:47,387  INFO HostingConfigureQuotaAction:76 - [HostingConfigureQuotaAction.HandleTicketACK] ticket_id: 2016050610170700000
+10:17:47,420  INFO HostingConfigureQuotaAction:91 - [HostingConfigureQuotaAction.HandleTicketProgress] Ticket progress: hosting.configure_quota
+10:17:47,421  INFO HostingConfigureQuotaAction:93 - [HostingConfigureQuotaAction.HandleTicketProgress]  ticket_id: 2016050610170700000
+10:17:47,421  INFO HostingConfigureQuotaAction:95 - [HostingConfigureQuotaAction.HandleTicketProgress] plan: ["unix.quota.set","unix.quota.set","unix.quota.set"]
+10:17:47,427  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:17:47,430  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:17:47,431  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610170700001
+10:17:47,439  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:17:47,439  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:17:47,440  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610170700002
+10:17:47,446  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,447  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,447  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700001
+10:17:47,447  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:17:47,452  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,453  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,453  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700001
+10:17:47,453  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:17:47,459  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:17:47,459  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:17:47,460  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610170700003
+10:17:47,467  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,468  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,468  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700002
+10:17:47,468  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:17:47,474  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,474  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,474  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700002
+10:17:47,475  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:17:47,481  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,481  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,482  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700003
+10:17:47,482  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:17:47,488  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:47,488  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:47,489  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700003
+10:17:47,489  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:17:53,866  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:53,867  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:53,867  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700001
+10:17:53,868  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:17:53,874  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:17:53,875  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:17:53,875  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610170700001
+10:17:53,876  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:17:53,882  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:53,882  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:53,882  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700003
+10:17:53,882  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:17:54,070  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:17:54,071  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:17:54,071  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610170700002
+10:17:54,071  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:17:56,546  INFO HostingConfigureQuotaAction:167 - [HostingConfigureQuotaAction.HandleJobFinish] job finished: unix.quota.set
+10:17:56,547  INFO HostingConfigureQuotaAction:168 - [HostingConfigureQuotaAction.HandleJobFinish] ticket_id: 2016050610170700000
+10:17:56,547  INFO HostingConfigureQuotaAction:169 - [HostingConfigureQuotaAction.HandleJobFinish] job_id: 2016050610170700003
+10:17:56,547  INFO HostingConfigureQuotaAction:170 - [HostingConfigureQuotaAction.HandleJobFinish] message: success
+10:17:56,642  INFO HostingConfigureQuotaAction:167 - [HostingConfigureQuotaAction.HandleJobFinish] job finished: unix.quota.set
+10:17:56,642  INFO HostingConfigureQuotaAction:168 - [HostingConfigureQuotaAction.HandleJobFinish] ticket_id: 2016050610170700000
+10:17:56,643  INFO HostingConfigureQuotaAction:169 - [HostingConfigureQuotaAction.HandleJobFinish] job_id: 2016050610170700002
+10:17:56,643  INFO HostingConfigureQuotaAction:170 - [HostingConfigureQuotaAction.HandleJobFinish] message: success
+10:18:23,898  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:18:23,899  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:18:23,899  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610174300000
+10:18:23,912  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:18:23,912  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:18:23,913  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610174300000
+10:18:23,913  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:18:23,917  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:18:23,918  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:18:23,918  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610174300000
+10:18:23,919  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:18:26,145  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:18:26,146  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:18:26,146  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610174300000
+10:18:26,146  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:18:26,151  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:18:26,152  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:18:26,152  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610174300000
+10:18:26,152  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:19:26,170  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:19:26,170  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:19:26,170  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610184600000
+10:19:26,184  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:19:26,185  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:19:26,185  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610184600000
+10:19:26,185  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:19:26,192  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:19:26,193  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:19:26,193  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610184600000
+10:19:26,193  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:19:27,954  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:19:27,955  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:19:27,955  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610184600000
+10:19:27,955  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:19:27,962  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:19:27,963  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:19:27,963  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610184600000
+10:19:27,963  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:21:27,993  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:21:27,994  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:21:27,994  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610204700000
+10:21:28,007  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:21:28,008  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:21:28,008  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610204700000
+10:21:28,008  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:21:28,014  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:21:28,014  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:21:28,014  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610204700000
+10:21:28,015  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:21:29,750  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:21:29,751  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:21:29,752  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610204700000
+10:21:29,753  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:21:29,758  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:21:29,759  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:21:29,759  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610204700000
+10:21:29,759  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:25:29,790  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:25:29,791  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:25:29,791  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610244900000
+10:25:29,804  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:25:29,804  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:25:29,804  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610244900000
+10:25:29,805  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:25:29,810  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:25:29,810  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:25:29,811  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610244900000
+10:25:29,811  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:25:31,607  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:25:31,608  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:25:31,608  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610244900000
+10:25:31,608  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:25:31,619  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:25:31,619  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:25:31,620  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610244900000
+10:25:31,620  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:33:31,652  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:33:31,653  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:33:31,653  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610325100000
+10:33:31,669  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:33:31,670  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:33:31,670  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610325100000
+10:33:31,670  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:33:31,676  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:33:31,677  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:33:31,677  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610325100000
+10:33:31,677  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:33:34,293  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:33:34,293  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:33:34,293  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610325100000
+10:33:34,294  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:33:34,305  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:33:34,306  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:33:34,306  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610325100000
+10:33:34,306  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+10:49:34,357  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+10:49:34,357  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+10:49:34,358  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050610485400000
+10:49:34,372  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:49:34,373  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:49:34,373  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610485400000
+10:49:34,373  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+10:49:34,382  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:49:34,383  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:49:34,383  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610485400000
+10:49:34,383  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+10:49:36,268  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+10:49:36,268  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+10:49:36,268  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050610485400000
+10:49:36,269  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+10:49:36,274  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+10:49:36,274  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+10:49:36,275  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050610485400000
+10:49:36,275  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+11:21:36,348  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+11:21:36,349  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+11:21:36,349  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050611205600000
+11:21:36,362  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+11:21:36,363  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+11:21:36,363  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050611205600000
+11:21:36,363  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+11:21:36,366  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+11:21:36,367  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+11:21:36,367  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050611205600000
+11:21:36,367  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+11:21:38,479  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+11:21:38,480  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+11:21:38,480  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050611205600000
+11:21:38,480  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+11:21:38,485  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+11:21:38,485  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+11:21:38,486  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050611205600000
+11:21:38,486  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used
+12:25:38,609  INFO HostingConfigureQuotaAction:146 - [HostingConfigureQuotaAction.HandleJobRequest] Job request: unix.quota.set
+12:25:38,609  INFO HostingConfigureQuotaAction:147 - [HostingConfigureQuotaAction.HandleJobRequest] ticket_id: 2016050610170700000
+12:25:38,609  INFO HostingConfigureQuotaAction:148 - [HostingConfigureQuotaAction.HandleJobRequest] job_id: 2016050612245800000
+12:25:38,625  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+12:25:38,626  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+12:25:38,626  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050612245800000
+12:25:38,626  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: accepted
+12:25:38,630  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+12:25:38,631  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+12:25:38,631  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050612245800000
+12:25:38,631  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: preconditions check passed
+12:25:40,886  INFO HostingConfigureQuotaAction:156 - [HostingConfigureQuotaAction.HandleJobProgress] job in progress: unix.quota.set
+12:25:40,886  INFO HostingConfigureQuotaAction:157 - [HostingConfigureQuotaAction.HandleJobProgress] ticket_id: 2016050610170700000
+12:25:40,886  INFO HostingConfigureQuotaAction:158 - [HostingConfigureQuotaAction.HandleJobProgress] job_id: 2016050612245800000
+12:25:40,887  INFO HostingConfigureQuotaAction:159 - [HostingConfigureQuotaAction.HandleJobProgress] message: executed
+12:25:40,892  INFO HostingConfigureQuotaAction:178 - [HostingConfigureQuotaAction.HandleJobError] job error: unix.quota.set
+12:25:40,892  INFO HostingConfigureQuotaAction:179 - [HostingConfigureQuotaAction.HandleJobError] ticket_id: 2016050610170700000
+12:25:40,893  INFO HostingConfigureQuotaAction:180 - [HostingConfigureQuotaAction.HandleJobError] job_id: 2016050612245800000
+12:25:40,893  INFO HostingConfigureQuotaAction:181 - [HostingConfigureQuotaAction.HandleJobError] reason: quota_less_than_currently_used

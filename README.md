@@ -240,7 +240,7 @@ erl -env ERL_LIBS _build/default/lib/ -eval 'application:ensure_all_started(rabb
 erl> rabbit_app:test().
 
 
-
+http://www.rabbitmq.com/tutorials/amqp-concepts.html
 
 
 
