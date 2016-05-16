@@ -169,6 +169,7 @@ np.:
 {other_id, {event_manager_mod, start_link, []}, transient, infinity, worker, dynamic}]
 
 ## start_child
+start_child(SupervisorNameOrPid, ChildSpec)
 
 
 

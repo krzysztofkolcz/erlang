@@ -88,9 +88,3 @@ terminate(_Reason, S) ->
     io:format("~s has been kicked out (~s)~n", [S#state.name, S#state.role]).
 
 
-
-
-
-
-
-
