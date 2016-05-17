@@ -247,7 +247,7 @@ http://dorkydevops.blogspot.com/2014/06/erlang-rabbitmq-amqp-rebar-example.html 
 https://www.rabbitmq.com/erlang-client-user-guide.html
 https://howistart.org/posts/erlang/1  - rebar3 Homer Simpson asm - stąd wziąłem start aplikacji i kompilacje:
 
-
+http://www.rabbitmq.com/tutorials/amqp-concepts.html
 
 Wyjaśniony protokół amqp, queues, channels i exchanges:
 http://www.rabbitmq.com/tutorials/amqp-concepts.html 

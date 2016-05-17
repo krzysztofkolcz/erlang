@@ -19,8 +19,10 @@ plan() ->
                {<<"total-mysql">>,    <<"total-mysql_quota">>,    <<"mysql_target_host">>},
                {<<"total-mail">>,     <<"total-mail_quota">>,     <<"mail_target_host">> }]
             ),
-    {Order, JobSpec0} = lists:unzip(Jobs),
-    {Order, parallel(JobSpec0)}.
+    Jobs.
+    %% {Order, JobSpec0} = lists:unzip(Jobs),
+    %% JobSpec0.
+    %% {Order, parallel(JobSpec0)}.
 
 parallel(ListOfJobs) ->
     {parallel, ListOfJobs}.
