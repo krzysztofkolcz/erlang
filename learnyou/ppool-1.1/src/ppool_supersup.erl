@@ -20,6 +20,7 @@ stop() ->
       _ -> ok
   end.
 
+%% funkcja API, tutaj startuje nowy pool
 %% tutaj startuje ppool supervisor, który będzie utrzymywał ppool_serv, oraz worker_sup
 %% czyli już tutaj muszę przekazywać: Nazwę  ppool_sup, 
 start_pool(Name, Limit, MFA)->
