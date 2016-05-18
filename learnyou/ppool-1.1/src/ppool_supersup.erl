@@ -1,12 +1,12 @@
 -module(ppool_supersup).
 -behaviour(supervisor).
--export([start_link/1, stop/0, start_pool/3,stop_pool/1]).
+-export([start_link/0, stop/0, start_pool/3,stop_pool/1]).
 -export([init/1]).
 
 start_link()->
   supervisor:start_link({local,ppool},?MODULE,[]).
 
-init()->
+init([])->
   %% {ok, {{RestartStrategy, MaxRestart, MaxTime},[ChildSpecs]}}
   {ok,{{one_for_one,6,3600},[]}}.
 
@@ -29,7 +29,7 @@ start_pool(Name, Limit, MFA)->
     {ppool_sup, start_link, [Name,Limit,MFA]}, %% start function, czyli parametry przekazane do init ppool_sup. Nie do końca rozumiem, czemu przekazane jest Name, oraz czym mają być MFA. Czyżby workery były tylko jednego typu?
                                                    %% tak jak myślę, Name i Limit będą przekazane do ppool_serv, aby utrzymywał liczbę wątków, a MFA bedą specyfikacją workerów
     permanent, 10500, supervisor, [ppool_sup]
-  }
+  },
   supervisor:start_child(ppool,ChildSpec). %%ppool - usawiane w linii 7
 
 

@@ -88,8 +88,11 @@ TimeOut
 Jeżeli żadna wiadomość nie zostanie obsłużona przed TimeOut (init), po wystąpieniu TimeOut wywoływana jest funkcja handle_info.
 
 ## handle_call:
+### wywołanie
+gen_server:call(Pid,{msg})
+
 ### params:
-Request, From, and State.
+handle_call({msg},From,State)
 
 ### return:
 {reply,Reply,NewState}
@@ -102,6 +105,9 @@ Request, From, and State.
 {stop,Reason,NewState}
 
 ## handle_cast:
+### wywołanie
+gen_server:cast(Pid,{msg})
+
 ### return:
 {noreply,NewState}
 {noreply,NewState,Timeout}
@@ -109,6 +115,13 @@ Request, From, and State.
 {stop,Reason,NewState}
 
 ## handle_info:
+### wywołanie:
+self() ! {msg}
+handle_info({msg},State)
+
+timeout?
+
+process_flag?
 ### desc:
 Wywoływana po przekroczeniu TimeOut - init
 
