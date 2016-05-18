@@ -72,6 +72,8 @@ init({Limit, MFA, Sup}) ->
 %% dodanie nowego procesu workera
   %% jeżęli jest miejsce - odpalenie, i dodanie pid do supervisora
   %% pytanie - w jaki sposób dowiedzieć się, żę proces się skończył (naturalnie, lub przez error) - co i w jaki sposób zwróci supervisor?
+  %% odp. Ref = erlang:monitor(process, Pid), następnie trzymam na liście pracujących procesów Ref i Pid,
+  %% następnie handle_info({'DOWN', Ref, process, _Pid, _}, S = #state{refs=Refs}) ->
 %% handle_call(Msg,From,State)->
   %% if Limit < proc_working.count()
   %% {ok,WorkerPid} = supervisor:start_child(State#state.worker_sup_pid,[MFA]),
@@ -90,8 +92,21 @@ init({Limit, MFA, Sup}) ->
   %% {ok,WorkerPid} = supervisor:start_child(WorkerSupPid,[Head.mfa]),
   %% {noreply,State(#state(proc_waiting=Tail,proc_working=[WorkerSupPid|ProcWorking])}.
 
+handle_down_worker(Ref, S = #state{refs=Refs, limit=N, sup=Sup}) ->
+limit=N+1
+%%remove Ref from Refs
+%% check if queue empty, if not take next process, and start it
 
 
+
+handle_info({'DOWN', Ref, process, _Pid, _}, S = #state{refs=Refs}) ->
+  io:format("received down msg~n"),
+  case gb_sets:is_element(Ref, Refs) of
+    true ->
+      handle_down_worker(Ref, S);
+    false -> %% Not our responsibility
+      {noreply, S}
+  end;
 handle_info({start_worker_supervisor, Sup, MFA}, S = #state{}) ->
   {ok, Pid} = supervisor:start_child(Sup, ?SPEC(MFA)),
   link(Pid),
@@ -100,11 +115,34 @@ handle_info(Msg, State) ->
   io:format("Unknown msg: ~p~n", [Msg]),
   {noreply, State}.
 
-handle_call(Msg,From,State)->
-  {reply,ok,State}.
-
-handle_cast(Msg, State) ->
+%% ok, rozumiem różnicę pomiędzy run a sync - run nie dodaje do kolejki procesów oczekujących
+handle_call({run, Args}, _From, S = #state{limit=N, sup=Sup, refs=R}) when N > 0 ->
+    {ok, Pid} = supervisor:start_child(Sup, Args),
+    Ref = erlang:monitor(process, Pid),
+    {reply, {ok,Pid}, S#state{limit=N-1, refs=gb_sets:add(Ref,R)}};
+handle_call({run, _Args}, _From, S=#state{limit=N}) when N =< 0 ->
+    {reply, noalloc, S};
+handle_call({sync, Args}, _From, S = #state{limit=N, sup=Sup, refs=R}) when N > 0 ->
+    {ok, Pid} = supervisor:start_child(Sup, Args),
+    Ref = erlang:monitor(process, Pid),
+    {reply, {ok,Pid}, S#state{limit=N-1, refs=gb_sets:add(Ref,R)}};
+handle_call({sync, Args},  From, S = #state{queue=Q}) ->
+    {noreply, S#state{queue=queue:in({From, Args}, Q)}}; %% Czy to nie zawiesza procesu wywołującego?
+handle_call(stop, _From, State) ->
+  {stop, normal, ok, State};
+handle_call(_Msg, _From, State) ->
   {noreply, State}.
+
+
+handle_cast({async, Args}, S=#state{limit=N, sup=Sup, refs=R}) when N > 0 ->
+    {ok, Pid} = supervisor:start_child(Sup, Args),
+    Ref = erlang:monitor(process, Pid),
+    {noreply, S#state{limit=N-1, refs=gb_sets:add(Ref,R)}};
+handle_cast({async, Args}, S=#state{limit=N, queue=Q}) when N =< 0 ->
+    {noreply, S#state{queue=queue:in(Args,Q)}};
+%% Not going to explain this one!
+handle_cast(_Msg, State) ->
+    {noreply, State}.
 
 code_change(_OldVsn, State, _Extra) ->
   {ok, State}.
