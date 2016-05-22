@@ -92,8 +92,22 @@ init({Limit, MFA, Sup}) ->
   %% {ok,WorkerPid} = supervisor:start_child(WorkerSupPid,[Head.mfa]),
   %% {noreply,State(#state(proc_waiting=Tail,proc_working=[WorkerSupPid|ProcWorking])}.
 
-handle_down_worker(Ref, S = #state{refs=Refs, limit=N, sup=Sup}) ->
-limit=N+1
+handle_down_worker(Ref, S = #state{limit=L, sup=Sup, refs=Refs}) ->
+    case queue:out(S#state.queue) of
+        {{value, {From, Args}}, Q} ->
+            {ok, Pid} = supervisor:start_child(Sup, Args),
+            NewRef = erlang:monitor(process, Pid),
+            NewRefs = gb_sets:insert(NewRef, gb_sets:delete(Ref,Refs)),
+            gen_server:reply(From, {ok, Pid}),
+            {noreply, S#state{refs=NewRefs, queue=Q}};
+        {{value, Args}, Q} ->
+            {ok, Pid} = supervisor:start_child(Sup, Args),
+            NewRef = erlang:monitor(process, Pid),
+            NewRefs = gb_sets:insert(NewRef, gb_sets:delete(Ref,Refs)),
+            {noreply, S#state{refs=NewRefs, queue=Q}};
+        {empty, _} ->
+            {noreply, S#state{limit=L+1, refs=gb_sets:delete(Ref,Refs)}}
+    end.
 %%remove Ref from Refs
 %% check if queue empty, if not take next process, and start it
 

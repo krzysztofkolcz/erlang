@@ -122,6 +122,9 @@ handle_info({msg},State)
 timeout?
 
 process_flag?
+
+{noreply, {msg}, Delay} - leci do handle_info(timeout,{msg})
+
 ### desc:
 Wywoływana po przekroczeniu TimeOut - init
 
@@ -184,6 +187,13 @@ np.:
 ## start_child
 start_child(SupervisorNameOrPid, ChildSpec)
 
+
+## kompilacja
+jeżeli pliki są w jednym katalogu, np. src wchodzę do tego katalogu i odpalam:
+erlc *.erl
+%% *. - nie wiem czemu ten symbol powoduje podświetlenie w vim
+następnie:
+erl
 
 
 ## Odpalenie erlcount + ppool
