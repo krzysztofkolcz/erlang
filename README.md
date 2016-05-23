@@ -131,13 +131,18 @@ Wywoływana po przekroczeniu TimeOut - init
 # gen_fsm 
 http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 ## init return values:
-{ok, StateName, Data}
-{ok, StateName, Data, Timeout}
-{ok, StateName, Data, hibernate}
+{ok, StateName, StateData}
+{ok, StateName, StateData, Timeout}
+{ok, StateName, StateData, hibernate}
 {stop, Reason} 
 
 
 ## state/2 (async):
+
+### return
+{next_state, NextStateName, NextState} |
+{next_state, NextStateName, NextState, Timeout} |
+{stop, Reason, NewState}
 
 ## state/3 (sync):
 
@@ -155,7 +160,13 @@ http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 
 ## send_event/2 - wysyłanie asynchronicznych eventów
 
-## send_sync_event/2-3 - wysyłanie synchronicznych eventów
+## sync_send_event/2-3 - wysyłanie synchronicznych eventów
+gen_fsm:sync_send_event(?SERVER, {msg}).
+
+teraz rozumiem to tak, że jeżeli gen_fsm jest w jakimś stanie (np. unlocked),
+wówczas powinien mieć funkcję:
+unlocked({msg},_From ,State)
+
 
 ## send_all_state_event/2 
 

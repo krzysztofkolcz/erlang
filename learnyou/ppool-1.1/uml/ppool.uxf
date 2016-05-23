@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>7</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>812</x>
-      <y>7</y>
-      <w>140</w>
-      <h>28</h>
+      <x>505</x>
+      <y>5</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_supersup:_</panel_attributes>
     <additional_attributes/>
@@ -15,33 +15,33 @@
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>861</x>
-      <y>14</y>
-      <w>34</w>
-      <h>1539</h>
+      <x>540</x>
+      <y>10</y>
+      <w>24</w>
+      <h>1099</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;1526</additional_attributes>
+    <additional_attributes>15;15;15;1090</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>175</y>
-      <w>406</w>
-      <h>49</h>
+      <x>270</x>
+      <y>125</y>
+      <w>290</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;
 start_ppool(Name,Limit,MFA)</panel_attributes>
-    <additional_attributes>399;35;21;35</additional_attributes>
+    <additional_attributes>285;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>973</x>
-      <y>56</y>
-      <w>140</w>
-      <h>28</h>
+      <x>620</x>
+      <y>40</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_supersup:instancja_</panel_attributes>
     <additional_attributes/>
@@ -49,33 +49,33 @@ start_ppool(Name,Limit,MFA)</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1022</x>
-      <y>63</y>
-      <w>41</w>
-      <h>1539</h>
+      <x>655</x>
+      <y>45</y>
+      <w>29</w>
+      <h>1099</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;28;1526</additional_attributes>
+    <additional_attributes>15;15;20;1090</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>861</x>
-      <y>224</y>
-      <w>196</w>
-      <h>49</h>
+      <x>540</x>
+      <y>160</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;
 start_child(ppool,ChildSpec)</panel_attributes>
-    <additional_attributes>182;35;21;35</additional_attributes>
+    <additional_attributes>130;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1141</x>
-      <y>140</y>
-      <w>140</w>
-      <h>28</h>
+      <x>740</x>
+      <y>100</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_sup:_</panel_attributes>
     <additional_attributes/>
@@ -83,33 +83,33 @@ start_child(ppool,ChildSpec)</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1183</x>
-      <y>147</y>
-      <w>48</w>
-      <h>1469</h>
+      <x>770</x>
+      <y>105</y>
+      <w>34</w>
+      <h>1049</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;35;1456</additional_attributes>
+    <additional_attributes>15;15;25;1040</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1022</x>
-      <y>245</y>
-      <w>196</w>
-      <h>49</h>
+      <x>655</x>
+      <y>175</y>
+      <w>140</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 start_link(Name,Limit,MFA)</panel_attributes>
-    <additional_attributes>182;35;21;35</additional_attributes>
+    <additional_attributes>130;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1316</x>
-      <y>294</y>
-      <w>140</w>
-      <h>28</h>
+      <x>865</x>
+      <y>210</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_sup:instancja_
 Pid:&lt;0,psup,0&gt;</panel_attributes>
@@ -118,33 +118,33 @@ Pid:&lt;0,psup,0&gt;</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1183</x>
-      <y>273</y>
-      <w>147</w>
-      <h>49</h>
+      <x>770</x>
+      <y>195</y>
+      <w>105</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 init({Name,Limit,MFA})</panel_attributes>
-    <additional_attributes>133;35;21;35</additional_attributes>
+    <additional_attributes>95;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1358</x>
-      <y>301</y>
-      <w>34</w>
-      <h>1315</h>
+      <x>895</x>
+      <y>215</y>
+      <w>24</w>
+      <h>939</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;1302</additional_attributes>
+    <additional_attributes>15;15;15;930</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1470</x>
-      <y>140</y>
-      <w>140</w>
-      <h>28</h>
+      <x>975</x>
+      <y>100</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_serv:_</panel_attributes>
     <additional_attributes/>
@@ -152,33 +152,33 @@ init({Name,Limit,MFA})</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1519</x>
-      <y>147</y>
-      <w>34</w>
-      <h>1483</h>
+      <x>1010</x>
+      <y>105</y>
+      <w>24</w>
+      <h>1059</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;1470</additional_attributes>
+    <additional_attributes>15;15;15;1050</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1358</x>
-      <y>308</y>
-      <w>196</w>
-      <h>49</h>
+      <x>895</x>
+      <y>220</y>
+      <w>143</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 start_link(Name,Limit,self(),MFA)</panel_attributes>
-    <additional_attributes>182;35;21;35</additional_attributes>
+    <additional_attributes>130;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1736</x>
-      <y>357</y>
-      <w>140</w>
-      <h>28</h>
+      <x>1165</x>
+      <y>255</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_serv:instancja_
 Pid:&lt;0,pserv,0&gt;</panel_attributes>
@@ -187,34 +187,34 @@ Pid:&lt;0,pserv,0&gt;</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1519</x>
-      <y>336</y>
-      <w>224</w>
-      <h>63</h>
+      <x>1010</x>
+      <y>240</y>
+      <w>164</w>
+      <h>46</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 init(Name,Limit,SupPid,MFA)
 init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
-    <additional_attributes>217;35;21;35</additional_attributes>
+    <additional_attributes>155;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1778</x>
-      <y>364</y>
-      <w>34</w>
-      <h>1273</h>
+      <x>1195</x>
+      <y>260</y>
+      <w>24</w>
+      <h>909</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;1260</additional_attributes>
+    <additional_attributes>15;15;15;900</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1533</x>
-      <y>385</y>
-      <w>280</w>
-      <h>21</h>
+      <x>1020</x>
+      <y>275</y>
+      <w>200</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;380.0;10.0</additional_attributes>
@@ -222,10 +222,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1372</x>
-      <y>392</y>
-      <w>182</w>
-      <h>21</h>
+      <x>905</x>
+      <y>280</y>
+      <w>130</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;240.0;10.0</additional_attributes>
@@ -233,10 +233,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1197</x>
-      <y>399</y>
-      <w>196</w>
-      <h>21</h>
+      <x>780</x>
+      <y>285</y>
+      <w>140</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;260.0;10.0</additional_attributes>
@@ -244,10 +244,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1036</x>
-      <y>413</y>
-      <w>182</w>
-      <h>21</h>
+      <x>665</x>
+      <y>295</y>
+      <w>130</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;240.0;10.0</additional_attributes>
@@ -255,10 +255,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>875</x>
-      <y>427</y>
-      <w>182</w>
-      <h>21</h>
+      <x>550</x>
+      <y>305</y>
+      <w>130</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;240.0;10.0</additional_attributes>
@@ -266,10 +266,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>497</x>
-      <y>441</y>
-      <w>399</w>
-      <h>21</h>
+      <x>280</x>
+      <y>315</y>
+      <w>285</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;550.0;10.0</additional_attributes>
@@ -277,10 +277,10 @@ init(Name,Limit,&lt;0,psup,0&gt;,MFA)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1792</x>
-      <y>399</y>
-      <w>392</w>
-      <h>70</h>
+      <x>1205</x>
+      <y>285</y>
+      <w>280</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 self() ! {start_worker_supervisor, Sup, MFA}
@@ -292,10 +292,10 @@ Sup = &lt;0,psup,0&gt;
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1372</x>
-      <y>462</y>
-      <w>441</w>
-      <h>28</h>
+      <x>905</x>
+      <y>330</y>
+      <w>315</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 start_child(Sup, ?SPEC(MFA))</panel_attributes>
@@ -304,10 +304,10 @@ start_child(Sup, ?SPEC(MFA))</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1561</x>
-      <y>497</y>
-      <w>231</w>
-      <h>112</h>
+      <x>1040</x>
+      <y>355</y>
+      <w>165</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>-define(SPEC(MFA),
         {worker_sup,
@@ -322,10 +322,10 @@ start_child(Sup, ?SPEC(MFA))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1589</x>
-      <y>469</y>
-      <w>63</w>
-      <h>42</h>
+      <x>1060</x>
+      <y>335</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;70.0;40.0</additional_attributes>
@@ -333,21 +333,21 @@ start_child(Sup, ?SPEC(MFA))</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1967</x>
-      <y>147</y>
-      <w>41</w>
-      <h>1497</h>
+      <x>1330</x>
+      <y>105</y>
+      <w>29</w>
+      <h>1069</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>28;21;21;476;21;1484</additional_attributes>
+    <additional_attributes>20;15;15;340;15;1060</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1925</x>
-      <y>140</y>
-      <w>140</w>
-      <h>28</h>
+      <x>1300</x>
+      <y>100</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_worker_sup:_</panel_attributes>
     <additional_attributes/>
@@ -355,10 +355,10 @@ start_child(Sup, ?SPEC(MFA))</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1372</x>
-      <y>623</y>
-      <w>630</w>
-      <h>28</h>
+      <x>905</x>
+      <y>445</y>
+      <w>450</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 init({M,F,A})</panel_attributes>
@@ -367,10 +367,10 @@ init({M,F,A})</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1554</x>
-      <y>658</y>
-      <w>231</w>
-      <h>42</h>
+      <x>1035</x>
+      <y>470</y>
+      <w>165</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>inicjuje supervisora dla workerów-
 simple_one_for_one, a więc czeka na
@@ -380,10 +380,10 @@ start_child</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1589</x>
-      <y>630</y>
-      <w>63</w>
-      <h>42</h>
+      <x>1060</x>
+      <y>450</y>
+      <w>45</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;70.0;40.0</additional_attributes>
@@ -391,10 +391,10 @@ start_child</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1372</x>
-      <y>714</y>
-      <w>630</w>
-      <h>21</h>
+      <x>905</x>
+      <y>510</y>
+      <w>450</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;880.0;10.0</additional_attributes>
@@ -402,10 +402,10 @@ start_child</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>2135</x>
-      <y>637</y>
-      <w>140</w>
-      <h>28</h>
+      <x>1450</x>
+      <y>455</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_worker_sup:instancja_
 &lt;0,wsup,0&gt;</panel_attributes>
@@ -414,10 +414,10 @@ start_child</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1981</x>
-      <y>637</y>
-      <w>168</w>
-      <h>28</h>
+      <x>1340</x>
+      <y>455</y>
+      <w>120</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 init({M,F,A})</panel_attributes>
@@ -426,21 +426,21 @@ init({M,F,A})</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2170</x>
-      <y>644</y>
-      <w>34</w>
-      <h>1007</h>
+      <x>1475</x>
+      <y>460</y>
+      <w>24</w>
+      <h>719</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;994</additional_attributes>
+    <additional_attributes>15;15;15;710</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1981</x>
-      <y>693</y>
-      <w>224</w>
-      <h>21</h>
+      <x>1340</x>
+      <y>495</y>
+      <w>160</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;300.0;10.0</additional_attributes>
@@ -448,56 +448,56 @@ init({M,F,A})</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>21</y>
-      <w>406</w>
-      <h>49</h>
+      <x>270</x>
+      <y>15</y>
+      <w>290</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 init</panel_attributes>
-    <additional_attributes>399;35;21;35</additional_attributes>
+    <additional_attributes>285;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>861</x>
-      <y>35</y>
-      <w>119</w>
-      <h>49</h>
+      <x>540</x>
+      <y>25</y>
+      <w>85</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 init</panel_attributes>
-    <additional_attributes>112;35;21;35</additional_attributes>
+    <additional_attributes>80;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>861</x>
-      <y>84</y>
-      <w>189</w>
-      <h>28</h>
+      <x>540</x>
+      <y>60</y>
+      <w>135</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;</panel_attributes>
-    <additional_attributes>21;21;182;21</additional_attributes>
+    <additional_attributes>15;15;130;15</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>98</y>
-      <w>406</w>
-      <h>28</h>
+      <x>270</x>
+      <y>70</y>
+      <w>290</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;</panel_attributes>
-    <additional_attributes>21;21;399;21</additional_attributes>
+    <additional_attributes>15;15;285;15</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>581</x>
-      <y>259</y>
-      <w>231</w>
-      <h>56</h>
+      <x>340</x>
+      <y>185</y>
+      <w>165</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>ChildSpec=
 {Name,
@@ -508,10 +508,10 @@ permanent, 10500, supervisor, [ppool_sup]}</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>805</x>
-      <y>252</y>
-      <w>161</w>
-      <h>49</h>
+      <x>500</x>
+      <y>180</y>
+      <w>115</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;50.0;210.0;10.0</additional_attributes>
@@ -519,10 +519,10 @@ permanent, 10500, supervisor, [ppool_sup]}</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>441</x>
+      <x>240</x>
       <y>0</y>
-      <w>140</w>
-      <h>28</h>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_ppool_supersup:_</panel_attributes>
     <additional_attributes/>
@@ -530,45 +530,45 @@ permanent, 10500, supervisor, [ppool_sup]}</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>7</y>
-      <w>34</w>
-      <h>1525</h>
+      <x>270</x>
+      <y>5</y>
+      <w>24</w>
+      <h>1089</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;1512</additional_attributes>
+    <additional_attributes>15;15;15;1080</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>105</x>
-      <y>147</y>
-      <w>406</w>
-      <h>49</h>
+      <x>0</x>
+      <y>105</y>
+      <w>290</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 start_ppool(Name,Limit,MFA)</panel_attributes>
-    <additional_attributes>399;35;21;35</additional_attributes>
+    <additional_attributes>285;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>105</x>
-      <y>7</y>
-      <w>406</w>
-      <h>49</h>
+      <x>0</x>
+      <y>5</y>
+      <w>290</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 start_link</panel_attributes>
-    <additional_attributes>399;35;21;35</additional_attributes>
+    <additional_attributes>285;25;15;25</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>819</y>
-      <w>1967</w>
-      <h>28</h>
+      <x>195</x>
+      <y>585</y>
+      <w>1405</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;2790.0;20.0</additional_attributes>
@@ -576,10 +576,10 @@ start_link</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>385</x>
-      <y>840</y>
-      <w>91</w>
-      <h>28</h>
+      <x>200</x>
+      <y>600</y>
+      <w>65</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>run</panel_attributes>
     <additional_attributes/>
@@ -587,83 +587,83 @@ start_link</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>266</x>
-      <y>861</y>
-      <w>251</w>
-      <h>49</h>
+      <x>115</x>
+      <y>615</y>
+      <w>179</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 run(Name,Args)</panel_attributes>
-    <additional_attributes>238;35;21;35</additional_attributes>
+    <additional_attributes>170;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>889</y>
-      <w>1070</w>
-      <h>49</h>
+      <x>270</x>
+      <y>635</y>
+      <w>764</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 ppool_serv:run(Name,Args)</panel_attributes>
-    <additional_attributes>1057;35;21;35</additional_attributes>
+    <additional_attributes>755;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1519</x>
-      <y>917</y>
-      <w>293</w>
-      <h>64</h>
+      <x>1010</x>
+      <y>655</y>
+      <w>209</w>
+      <h>46</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 gen_server:call(Name,Args)
 handle_call({run,Args}...)</panel_attributes>
-    <additional_attributes>280;35;21;35</additional_attributes>
+    <additional_attributes>200;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1778</x>
-      <y>952</y>
-      <w>426</w>
-      <h>49</h>
+      <x>1195</x>
+      <y>680</y>
+      <w>304</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 start_child(Sup,Args)</panel_attributes>
-    <additional_attributes>413;35;21;35</additional_attributes>
+    <additional_attributes>295;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1778</x>
-      <y>1022</y>
-      <w>426</w>
-      <h>49</h>
+      <x>1195</x>
+      <y>730</y>
+      <w>304</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;
 {ok,Pid}</panel_attributes>
-    <additional_attributes>413;35;21;35</additional_attributes>
+    <additional_attributes>295;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2170</x>
-      <y>980</y>
-      <w>426</w>
-      <h>49</h>
+      <x>1475</x>
+      <y>700</y>
+      <w>304</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;
 init</panel_attributes>
-    <additional_attributes>413;35;21;35</additional_attributes>
+    <additional_attributes>295;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>2583</x>
-      <y>1001</y>
-      <w>140</w>
-      <h>28</h>
+      <x>1770</x>
+      <y>715</y>
+      <w>100</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>_worker:instancja_
 &lt;0,worker,0&gt;</panel_attributes>
@@ -672,58 +672,58 @@ init</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2625</x>
-      <y>1008</y>
-      <w>28</w>
-      <h>588</h>
+      <x>1800</x>
+      <y>720</y>
+      <w>24</w>
+      <h>424</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>21;21;21;581</additional_attributes>
+    <additional_attributes>15;15;15;415</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2170</x>
-      <y>1008</y>
-      <w>489</w>
-      <h>49</h>
+      <x>1475</x>
+      <y>720</y>
+      <w>349</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;
 init</panel_attributes>
-    <additional_attributes>476;35;21;35</additional_attributes>
+    <additional_attributes>340;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1519</x>
-      <y>1050</y>
-      <w>293</w>
-      <h>49</h>
+      <x>1010</x>
+      <y>750</y>
+      <w>209</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;
 {ok,Pid}</panel_attributes>
-    <additional_attributes>280;35;21;35</additional_attributes>
+    <additional_attributes>200;25;15;25</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>483</x>
-      <y>1085</y>
-      <w>1070</w>
-      <h>34</h>
+      <x>270</x>
+      <y>775</y>
+      <w>764</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;</panel_attributes>
-    <additional_attributes>1057;21;21;21</additional_attributes>
+    <additional_attributes>755;15;15;15</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>266</x>
-      <y>1099</y>
-      <w>251</w>
-      <h>34</h>
+      <x>115</x>
+      <y>785</y>
+      <w>179</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&gt;&gt;</panel_attributes>
-    <additional_attributes>238;21;21;21</additional_attributes>
+    <additional_attributes>170;15;15;15</additional_attributes>
   </element>
 </diagram>
