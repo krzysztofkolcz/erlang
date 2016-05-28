@@ -13,3 +13,8 @@ obiado/obiado.iml
 **/*.dump
 
 rabbit-1.0/include/*
+
+learnyou/release/rel
+
+learnyou/processquest/rel
+learnyou/processquest/relup

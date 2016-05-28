@@ -210,6 +210,18 @@ erl
 ## Odpalenie erlcount + ppool
 cd erlangtut/learnyou
 cd ppool-1.0
+Struktura ppool-1.0:
+  ▾ ppool-1.0/
+    ▸ ebin/
+    ▸ src/
+    ▸ test/
+      Emakefile
+
+Konieczny jest Emakefile, zawierający:
+{"src/*", [debug_info, {i,"include/"}, {outdir, "ebin/"}]}.
+{"test/*", [debug_info, {i,"include/"}, {outdir, "ebin/"}]}.
+
+Mogę odpalić:
 erl -make
 
 cd ../erlcount-1.0
@@ -218,9 +230,38 @@ erl -make
 cd ..
 erl -env ERL_LIBS "."
 
+hmm, nie podziałało, podziałało podanie ścieżek do katalogów z aplikacjami:
+erl -env ERL_LIBS "/home/krzysztof/IdeaProjects/erlang/learnyou/ppool-1.0/:/home/krzysztof/IdeaProjects/erlang/learnyou/erlcount-1.0"
+
 erl> application:load(ppool).
 erl> application:start(ppool), application:start(erlcount).
 
+## release with systool
+kopiuję ppool-1.0 oraz erlcount-1.0 do release
+dodaje odpowiednie wpisy do plików  (description)
+dodaje erlcount-1.0.rel (z odpowiednimi wersjami erts, stdlib i kernel - erts widoczne po odpaleniu erl, stdlib i kernel po odpaleniu application:which_applications(). w konsoli erlanga)
+następnie odpalam:
+erl -env ERL_LIBS .
+systools:make_script("erlcount-1.0", [local]).
+systools:make_tar("erlcount-1.0", [{erts, "/usr/lib/erlang/"}]).
+
+copiuję plik erlcount-1.0.tar do ~/apps/erlcount/
+cd ~/apps/erlcount
+./erts-7.2/bin/erl -boot releases/1.0.0/start
+
+## release with reltool
+Do katalogu release dodaje plik
+erlcount-1.0.config
+
+{sys, [
+  {lib_dirs, ["/home/krzysztof/IdeaProjects/erlang/learnyou/release/"]},
+  {rel, "erlcount", "1.0.0", [kernel, stdlib, {ppool, permanent}, {erlcount, transient}]},
+  {boot_rel, "erlcount"}
+]}.
+
+{ok, Conf} = file:consult("erlcount-1.0.config").
+{ok, Spec} = reltool:get_target_spec(Conf).
+reltool:eval_target_spec(Spec, code:root_dir(), "rel").
 
 
 
@@ -228,15 +269,6 @@ erl> application:start(ppool), application:start(erlcount).
 rebar3 new app <app-name>
 
 
-## rabbit
-echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
-sudo apt-get update
-
-lub
-
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
-
-sudo apt-get install rabbitmq-server
 
 ### rabbitmqadmin
 sudo ln -s /usr/lib/rabbitmq/bin/rabbitmq-plugins /usr/local/bin/rabbitmq-plugins
@@ -268,7 +300,19 @@ ERL_LIBS=include erlc -o ebin recv.erl - za stare
 https://github.com/jbrisbin/amqp_client - rebar friendly version of rabbit
 
 
-== rabbit ==
+## rabbit
+
+### rabbit instalacja
+echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+sudo apt-get update
+
+lub
+
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.deb.sh | sudo bash
+
+sudo apt-get install rabbitmq-server
+
+
 katalog:
 /erlang/rabbit
 
@@ -288,6 +332,220 @@ http://www.rabbitmq.com/tutorials/amqp-concepts.html
 
 Tutorial erlanga:
 https://www.rabbitmq.com/erlang-client-user-guide.html
+
+## Processquest - code replace chapter
+Kopia plików z tutoriala.
+Struktura plików:
+  ▾ processquest/
+    ▾ apps/
+      ▾ processquest-1.0.0/
+        ▸ ebin/
+        ▸ src/
+          Emakefile
+      ▾ regis-1.0.0/
+        ▸ ebin/
+        ▸ src/
+          Emakefile
+      ▾ sockserv-1.0.0/
+        ▸ ebin/
+        ▸ src/
+          Emakefile
+    ▸ rel/
+      processquest-1.0.0.config
+
+Dla każdej aplikacji (np. w katalogu processquest-1.0.0) odpalam erl -make
+Następnie w konsoli erlanga, w katalogu processquest odpalam konsolkę:
+erl
+następnie polecenie:
+{ok, Conf} = file:consult("processquest-1.0.0.config"), {ok, Spec} = reltool:get_target_spec(Conf), reltool:eval_target_spec(Spec, code:root_dir(), "rel").
+
+następnie startuję aplikację (w nowej konsolce):
+ ./rel/bin/erl -sockserv port 8888
+
+
+### Upgrade
+Struktura plików po upgrade:
+  ▾ processquest/
+    ▾ apps/
+      ▸ processquest-1.0.0/
+      ▸ processquest-1.1.0/
+      ▸ regis-1.0.0/
+      ▸ sockserv-1.0.0/
+      ▸ sockserv-1.0.1/
+    ▸ rel/
+      processquest-1.0.0.config
+      processquest-1.1.0.config
+
+Zmiany w plikach src dla wyższej wersji, funkcja code_change
+
+Dodanie plików appup, zmiana wersji w pliku app, dodanie nowych modułów w pliku app (jeżeli doszły)
+
+      ▾ processquest-1.1.0/
+        ▾ ebin/
+            ...
+            processquest.app
+            processquest.appup
+
+Szablon pliku appup:
+{"1.1.0",
+[{"1.0.0", [Instructions]}],
+[{"1.0.0", [Instructions]}]}.
+
+Dodanie pliku:
+      processquest-1.1.0.config
+Zawierającego nową wersję aplikacji, oraz nowe wersje podaplikacji
+
+Dla każdej nowej aplikacji (np. w katalogu processquest-1.1.0) odpalam erl -make
+Następnie w konsoli erlanga, w katalogu processquest odpalam konsolkę:
+erl -env ERL_LIBS apps/
+A w konsolce:
+{ok, Conf} = file:consult("processquest-1.1.0.config"), {ok, Spec} = reltool:get_target_spec(Conf), reltool:eval_target_spec(Spec, code:root_dir(), "rel").
+
+Następnie zmieniam nazwy wygenerowanych plików:
+
+  ▾ processquest/
+    ▸ apps/
+    ▾ rel/
+      ...
+      ▾ releases/
+        ▾ 1.0.0/
+            processquest.boot -> processquest-1.0.0.boot i start.boot
+            processquest.rel -> processquest-1.0.0.rel
+            processquest.script
+        ▾ 1.1.0/
+            processquest.boot -> processquest-1.1.0.boot i start.boot
+            processquest.rel -> processquest-1.1.0.rel
+            processquest.script
+
+
+Następnie odpalam konsolkę z katalogu processquest:
+erl -env ERL_LIBS apps/ -pa apps/processquest-1.0.0/ebin/ -pa apps/sockserv-1.0.0/ebin/
+
+Generuję relup file:
+systools:make_relup("./rel/releases/1.1.0/processquest-1.1.0", ["rel/releases/1.0.0/processquest-1.0.0"], ["rel/releases/1.0.0/processquest-1.0.0"]).
+
+Pojawia się:
+  ▾ processquest/
+      ...
+      relup
+
+Wygenerowanie tara dla wersji
+systools:make_tar("rel/releases/1.1.0/processquest-1.1.0").
+
+Pojawia się:
+
+  ▾ processquest/
+    ...
+    ▾ rel/
+      ...
+      ▾ releases/
+        ...
+        ▾ 1.1.0/
+            ...
+            processquest-1.1.0.tar.gz
+
+przenoszę plik do rel:
+mv rel/releases/1.1.0/processquest-1.1.0.tar.gz rel/releases/ 
+
+  ▾ processquest/
+    ...
+    ▾ rel/
+      ...
+      ▾ releases/
+        ...
+          processquest-1.1.0.tar.gz
+
+Aby mieć możliwość cofnięcia upgradeu (jeszcze nie wiem, dlaczego):
+odpalam konsolkę w katalogu processquest:
+erl
+opalam komendę:
+release_handler:create_RELEASES("rel", "rel/releases", "rel/releases/1.0.0/processquest-1.0.0.rel", [{kernel,"2.14.4", "rel/lib"}, {stdlib,"1.17.4","rel/lib"}, {crypto,"2.0.3","rel/lib"},{regis,"1.0.0", "rel/lib"}, {processquest,"1.0.0","rel/lib"},{sockserv,"1.0.0", "rel/lib"}, {sasl,"2.1.9.4", "rel/lib"}]).
+
+odpalenie:
+rel/bin/erl - spowoduje uruchomienie najnowszej wersji aplikacji
+
+odpalenie:
+./rel/bin/erl -boot rel/releases/1.0.0/processquest. - spowoduje uruchomienie wersji 1.0.0
+(nie wiem czemu muszę zmienić nazwę: processquest-1.0.0.boot na: processquest.boot)
+
+Sam upgrade:
+release_handler:unpack_release("processquest-1.1.0").
+release_handler:which_releases().
+
+wynikiem jest informacja, że wersja jest gotowa do aktualizacji, lecz jeszcze nie zainstalowana
+
+Instalacja:
+release_handler:install_release("1.1.0").
+
+Pozostawienie wersji na stałe:
+release_handler:make_permanent("1.1.0").
+
+
+## UDP
+(udp 1):
+{ok, Socket} = gen_udp:open(8789, [binary, {active,true}]).
+gen_udp:close(Socket).
+
+wysyłam info z socketa z drugiego portu (udp 2):
+{ok, Socket} = gen_udp:open(8790).
+gen_udp:send(Socket, {127,0,0,1}, 8789, "hey there!").
+flush().
+Shell got {udp,#Port<0.34114>,{127,0,0,1},8790,<<"hey there!">>}
+
+### Passive mode
+(udp 1):
+{ok, Socket} = gen_udp:open(8789, [binary, {active,false}]).
+gen_udp:recv(Socket, 0).
+lub z timeout:
+gen_udp:recv(Socket, 0, 2000).
+
+(udp 2):
+gen_udp:send(Socket, {127,0,0,1}, 8789, "hey there!").
+
+(udp 1):
+{ok,{{127,0,0,1},8790,<<"hey there!">>}}
+
+Czyli różnica pomiędzy active a passive:
+Dla active, wystarczy wywołać flush()
+Dla passive, należy czekać w gen_udp:recv
+
+## TCP
+(tcp 1):
+{ok, ListenSocket} = gen_tcp:listen(8091, [{active,true}, binary]).
+{ok, AcceptSocket} = gen_tcp:accept(ListenSocket).
+
+shell is locked waiting
+
+(tcp 2):
+{ok, Socket} = gen_tcp:connect({127,0,0,1}, 8091, [binary, {active,true}]). 
+gen_tcp:send(Socket, "Hey there first shell!").
+
+(tcp 1):
+flush().
+Shell got {tcp,#Port<0.538>,<<"Hey there first shell!">>}
+
+en_tcp:send(AcceptSocket, "Hey there second shell!").
+
+(tcp 2):
+flush().
+Shell got {tcp,#Port<0.527>,<<"Hey there second shell!">>}
+ok
+
+
+
+gen_tcp:close(Socket).
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
