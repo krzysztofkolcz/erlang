@@ -48,7 +48,7 @@ true
 # monitors
 Inaczej niż link, jeżeli monitorowany proces zginie, proces monitorujący otrzyma wiadomość
 erlang:monitor/2
-pierwszy parametr to atmo process
+pierwszy parametr to atom process
 1> erlang:monitor(process, spawn(fun() -> timer:sleep(500) end)).
 #Ref<0.0.0.77>
 2> flush().
@@ -537,16 +537,56 @@ gen_tcp:close(Socket).
 
 
 
+## mytcp
+dodane pliki:
+  ▾ mytcp/
+    ▾ apps/
+      ▾ mysockserv-1.0.0/
+        ▾ ebin/
+            mysockserv.app
+        ▾ src/
+            mysockserv.erl
+            mysockserv_serv.erl
+            mysockserv_sup.erl
+          Emakefile
+    ▾ rel/
+      mytcp-1.0.0.config
 
+korzystam z reltool
 
+erl
+{ok, Conf} = file:consult("mytcp-1.0.0.config"). 
+{ok, Spec} = reltool:get_target_spec(Conf). 
+reltool:eval_target_spec(Spec, code:root_dir(), "rel").
 
+{ok, Conf} = file:consult("mytcp-1.0.0.config"), {ok, Spec} = reltool:get_target_spec(Conf), reltool:eval_target_spec(Spec, code:root_dir(), "rel").
 
+w drugiej konsolce:
+./rel/bin/erl -mysockserv 
+mysockserv_serv:ping().
 
+Problem z uruchomieniem wielu wątków wynikał z tego:
+start_link(Socket) ->
+  %% gen_server:start_link({local, ?SERVER}, ?MODULE, [Socket], []). %% dla tego wywołania nie można było utworzyć więcej niż jednego wątku tego gen_servera. Co oznacza {local, ?MODULE} jako pierwszy parametr?
+  gen_server:start_link( ?MODULE, [Socket], []).
 
+## Testy
+  ▾ processquest/
+    ▾ apps/
+      ▸ processquest-1.0.0/
+      ▸ processquest-1.1.0/
+      ▾ regis-1.0.0/
+        ▸ ebin/
+        ▸ src/
+        ▾ test/
+            regis_server_tests.erl
+            regis_tests.erl
 
-
-
-
+W katalogu processquest/apps/regis-1.0.0/
+erl -make
+erl -pa ebin/
+1> eunit:test(regis_server).
+2> eunit:test(regis_server, [verbose]).
 
 
 
