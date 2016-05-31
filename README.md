@@ -78,11 +78,12 @@ gen_server:start_link(?MODULE, [], []).
 # implemencacja gen_server behaviour:
 ## init:
 ### return:
+```erlang
 {ok, State}
 {ok, State, TimeOut}
 {ok, State, hibernate}
 {stop, Reason} or ignore
-
+```
 ### desc:
 TimeOut
 Jeżeli żadna wiadomość nie zostanie obsłużona przed TimeOut (init), po wystąpieniu TimeOut wywoływana jest funkcja handle_info.
@@ -95,6 +96,7 @@ gen_server:call(Pid,{msg})
 handle_call({msg},From,State)
 
 ### return:
+```erlang
 {reply,Reply,NewState}
 {reply,Reply,NewState,Timeout}
 {reply,Reply,NewState,hibernate}
@@ -103,50 +105,77 @@ handle_call({msg},From,State)
 {noreply,NewState,hibernate}
 {stop,Reason,Reply,NewState}
 {stop,Reason,NewState}
-
+```
 ## handle_cast:
 ### wywołanie
+```erlang
 gen_server:cast(Pid,{msg})
-
+```
 ### return:
+```erlang
 {noreply,NewState}
 {noreply,NewState,Timeout}
 {noreply,NewState,hibernate}
 {stop,Reason,NewState}
-
+```
 ## handle_info:
 ### wywołanie:
+```erlang
 self() ! {msg}
 handle_info({msg},State)
-
 timeout?
-
 process_flag?
-
 {noreply, {msg}, Delay} - leci do handle_info(timeout,{msg})
-
+```
 ### desc:
 Wywoływana po przekroczeniu TimeOut - init
 
+### return:
+TODO
+
+```erlang
+{noreply, State}
+{stop, Reason, State};
+```
+## terminate:
+### wywołanie
+TODO
+
+### return:
+ok.
+
+### przykład:
+```erlang
+terminate(_Reason, _State) ->
+  ok.
+```
+## code_change:
+```erlang
+code_change(_OldVsn, State, _Extra) ->
+  {ok, State}.
+```
 # gen_fsm 
 http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 ## init return values:
+```erlang
 {ok, StateName, StateData}
 {ok, StateName, StateData, Timeout}
 {ok, StateName, StateData, hibernate}
 {stop, Reason} 
-
+```
 
 ## state/2 (async):
 
 ### return
+```erlang
 {next_state, NextStateName, NextState} |
 {next_state, NextStateName, NextState, Timeout} |
 {stop, Reason, NewState}
-
+```
 ## state/3 (sync):
 
 ## state/3 return values:
+```erlang
 {reply, Reply, NextStateName, NewStateData}
 {reply, Reply, NextStateName, NewStateData, Timeout}
 {reply, Reply, NextStateName, NewStateData, hibernate}
@@ -157,7 +186,7 @@ http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 
 {stop, Reason, Reply, NewStateData}
 {stop, Reason, NewStateData}
-
+```
 ## send_event/2 - wysyłanie asynchronicznych eventów
 
 ## sync_send_event/2-3 - wysyłanie synchronicznych eventów
@@ -266,9 +295,171 @@ reltool:eval_target_spec(Spec, code:root_dir(), "rel").
 
 
 ## rebar3
+Testy w katalogu rebar
 rebar3 new app <app-name>
+rebar3 new app test001 
+
+Różnice pomiędzy np. mytcp, gdzie korzystam z reltool:
+plik aplikacji:
+mysockserv-1.0.0/ebin/mysockserv.app
+test001/src/test001.app.src
+
+dodatkowy plik:
+test001/rebar.config
+
+brak:
+Emakefile  (czy ten plik jest potrzebny w przypadku reltool albo systool?)
+
+rebar3 compile
 
 
+testuje najpierw normalnie, czyli:
+erl
+c(test001_sup).
+c(test001_serv). 
+
+{ok,Pid} = test001_serv:start_link().
+test001_serv:ping(). %% błąd, więc poniższe wywołanie
+gen_server:call(Pid,{ping}). %% błąd noproc
+
+zmieniam:
+  gen_server:start_link(,?MODULE,[],[]).
+na:
+  gen_server:start_link({local,?MODULE},?MODULE,[],[]).
+
+
+gen_server:call(Pid,{ping}). %% teraz działa 
+watsuup
+
+retstart konsoli, erl:
+1> test001_sup:start_link().
+{ok,<0.35.0>}
+2> test001_serv:ping().
+watsuup
+3> 
+
+niestety test001_serv:stop(). wywala jakiś wyjątek, nie wiem jeszcze, czy to jest poprawne, czy wystarczy robić tylko trapa w konsolce
+
+
+Ok, dodaje plik Emakefile, oraz ebin
+test001/Emakefile
+test001/ebin
+
+erl -make
+erl -pa ebin/
+1> eunit:test(test001_tests).
+2> eunit:test(test001_tests, [verbose]).
+
+chcę odpalić aplikację w normalny sposób:
+erl
+application:load(test001).
+{error,{"no such file or directory","test001.app"}}
+
+wychodzę z erl
+odpalam 
+rebar3 compile
+
+kompilacja i utworzenie katalogu_ _build : 
+
+  ▾ test001/
+    ▾ _build/
+      ▾ default/
+        ▾ lib/
+          ▾ test001/
+            ▾ ebin/
+                test001.app
+                test001_app.beam
+                test001_serv.beam
+                test001_sup.beam
+                test001_tests.beam
+            ▸ src/ -> /home/krzysztof/IdeaProjects/erlang/rebar/test001/src/
+
+w katalogu rebar/test001 odpalam
+rebar3 ct (ct - common tests)
+nie wykrył żadnych testów
+
+rebar3 eunit - działa
+
+### release
+dodaje do pliku rebar.config wpis:
+{relx, [{release, {<release name>, "0.0.1"},
+         [<app>]},
+        {dev_mode, true},
+        {include_erts, false},
+        {extended_start_script, true}]}.
+
+{relx, [{release, {test001, "0.0.1"},
+         [test001]},
+        {dev_mode, true},
+        {include_erts, false},
+        {extended_start_script, true}]}.
+
+odpalam:
+rebar3 release -n <release_name>
+rebar3 release -n test001
+
+Udało się za pierwszym razem :D
+Miało wygenerować:
+\_build/<profile>/rel/<release name>/bin/<release name>.
+Wygenerowało:
+
+▾ rebar/
+  ▾ test001/
+    ▾ _build/
+      ▾ default/
+        ▸ lib/
+        ▾ rel/
+          ▾ test001/
+            ▾ bin/
+                install_upgrade.escript
+                nodetool
+                start_clean.boot
+                test001*
+                test001-0.0.1*
+            ▸ lib/
+            ▾ releases/
+              ▾ 0.0.1/
+                  start_clean.boot
+                  sys.config
+                  test001.boot
+                  test001.rel
+                  test001.script
+                  vm.args
+                RELEASES
+                start_erl.data
+
+
+Zrobienie builda produktycjnego:
+wyłącznie dev_mode (aplikacje są kopiowane do lib, a nie symlinkowane)
+shell:
+rebar3 release -d false
+
+lub profil w rebar.config:
+{profiles, [{prod, [{relx, [{dev_mode, false}]}]}]}.
+
+odpalam z profilem w rebar.config:
+rebar3 as prod tar
+
+wygenerowany został plik tar:
+rebar/test001/\_build/prod/rel/test001/test001-0.0.1.tar.gz
+
+cp rebar/test001/\_build/prod/rel/test001/test001-0.0.1.tar.gz ~/apps/test001/
+cd ~/apps/test001/
+tar -xvzf test001-0.0.1.tar.gz
+
+odpaliłem to jako
+./bin/test001 start
+
+i chyba powstał demon, do którego nie wiem, jak się dostać...
+
+./bin/test001 stop
+ok.
+
+./bin/test001 console
+1> test001_serv:ping().
+watsuup
+
+Działa!
 
 ### rabbitmqadmin
 sudo ln -s /usr/lib/rabbitmq/bin/rabbitmq-plugins /usr/local/bin/rabbitmq-plugins
@@ -387,9 +578,12 @@ Dodanie plików appup, zmiana wersji w pliku app, dodanie nowych modułów w pli
             processquest.appup
 
 Szablon pliku appup:
+
+```erlang
 {"1.1.0",
 [{"1.0.0", [Instructions]}],
 [{"1.0.0", [Instructions]}]}.
+```
 
 Dodanie pliku:
       processquest-1.1.0.config
