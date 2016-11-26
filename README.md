@@ -190,7 +190,10 @@ http://erlang.org/documentation/doc-4.8.2/doc/design_principles/fsm.html
 ## send_event/2 - wysyłanie asynchronicznych eventów
 
 ## sync_send_event/2-3 - wysyłanie synchronicznych eventów
+
+```erlang
 gen_fsm:sync_send_event(?SERVER, {msg}).
+```
 
 teraz rozumiem to tak, że jeżeli gen_fsm jest w jakimś stanie (np. unlocked),
 wówczas powinien mieć funkcję:
